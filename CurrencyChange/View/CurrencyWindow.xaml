@@ -16,11 +16,34 @@
         <StackPanel Width="504" Height="77" VerticalAlignment="Top" Background="#3E5C4F">
             <TextBlock Text="Currency Change" FontSize="28" Width="220" Height="40" HorizontalAlignment="Left" Margin="0 15" Foreground="#FFE9EBE0" />
         </StackPanel>
-        <StackPanel Background="#0D0E09" Width="504" Height="787" Margin="0,71,0,0">
-            <StackPanel Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0"></StackPanel>
-            <StackPanel Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0"></StackPanel>
-            <StackPanel Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0"></StackPanel>
-            <StackPanel Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0"></StackPanel>
+        <StackPanel x:Name="Content" Background="#0D0E09" Width="504" Height="787" Margin="0,71,0,0">
+            <DockPanel Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0" >
+                <ComboBox Width="100" Height="54.1" Background="#BFC4A7" SelectedValue="asdasd" HorizontalAlignment="Left"/>
+                <TextBox Width="150" Height="50" FontSize="25" BorderBrush="#BFC4A7" Background="#BFC4A7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="-60 0 0 0"/>
+            </DockPanel>
+            <DockPanel  Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0">
+                <ComboBox Width="100" Height="54.1" Background="#BFC4A7" SelectedValue="asdasd" HorizontalAlignment="Left"/>
+                <Label Width="150" Height="50" FontSize="25" BorderBrush="#BFC4A7" Background="#BFC4A7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="50 0 0 0"/>
+                <Button  Click="Delete" Content="X" Height="54" Width="50" BorderBrush="#BFC4A7" Background="#BFC4A7" FontSize="25"  HorizontalAlignment="Right" />
+            </DockPanel>
+            <DockPanel  Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0">
+                <ComboBox Width="100" Height="54.1" Background="#BFC4A7" SelectedValue="asdasd" HorizontalAlignment="Left"/>
+                <Label Width="150" Height="50" FontSize="25" BorderBrush="#BFC4A7" Background="#BFC4A7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="50 0 0 0"/>
+                <Button  Click="Delete" Content="X" Height="54" Width="50" BorderBrush="#BFC4A7" Background="#BFC4A7" FontSize="25"  HorizontalAlignment="Right" />
+            </DockPanel>
+            <DockPanel x:Name="StackPlusPanel" Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0">
+                <Button Content="+" FontSize="34" Width="418" Height="54.1" x:Name="PlusButton" Click="PlusButton_Click">
+                    <Button.Background>
+                        <SolidColorBrush Opacity="0"/>
+                    </Button.Background>
+                </Button>
+            </DockPanel>
+
+
+            <!--<StackPanel Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0"></StackPanel>-->
+
+
+
         </StackPanel>
     </Grid>
 </Window>

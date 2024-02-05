@@ -19,7 +19,7 @@
         <StackPanel x:Name="Content" Background="#0D0E09" Width="504" Height="787" Margin="0,71,0,0">
             <DockPanel Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0" >
                 <ComboBox Width="100" Height="54.1" Background="#BFC4A7" SelectedValue="asdasd" HorizontalAlignment="Left"/>
-                <TextBox Width="150" Height="50" FontSize="25" BorderBrush="#BFC4A7" Background="#BFC4A7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="-60 0 0 0"/>
+                <TextBox Width="150" Height="50" FontSize="25" BorderBrush="#BFC4A7" Background="#BFC4A7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="-60 0 0 0" Text="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
             <DockPanel  Background="#BFC4A7" Width="418" Height="54.1" HorizontalAlignment="Center" Margin="0 20px 0 0">
                 <ComboBox Width="100" Height="54.1" Background="#BFC4A7" SelectedValue="asdasd" HorizontalAlignment="Left"/>

@@ -16,6 +16,16 @@ namespace CurrencyChange.ViewModel
         ObservableCollection<Currency> AvailableCurrencies { get; set; }
         CurrencyConverter currencyConverter = new CurrencyConverter();
         public QueryCurrenciesCommand? QueryCurrenciesCommand { get; set; }
+        public string Amount 
+        {
+            get { return currencyConverter.amount.ToString(); }
+            set 
+            { 
+                int.TryParse(value, out currencyConverter.amount);
+                CurrencyChangeHelper.SetConversionRates(currencyConverter);
+                OnPropertyChanged("Amount");
+            }
+        }
 
         public CurrencyChangeVM()
         {

@@ -41,7 +41,7 @@ namespace CurrencyChange.ViewModel.Helpers
             return currencies;
         }
 
-        public static async void SetConversionRates(CurrencyConverter currencyConverter)
+        public static async Task<bool> SetConversionRates(CurrencyConverter currencyConverter)
         {
             string url = $"https://currency-converter-pro1.p.rapidapi.com/latest-rates?base={currencyConverter.Base.Abbreviation}&currencies={currencyConverter.CurrencyList[0].Abbreviation}";
             for (int i = 1; i < currencyConverter.CurrencyList.Count; i++)
@@ -65,13 +65,13 @@ namespace CurrencyChange.ViewModel.Helpers
                 var response = client.SendAsync(request).Result;
                 string json = await response.Content.ReadAsStringAsync();
                 GetConversionRatesResponse apiResponse = JsonConvert.DeserializeObject<GetConversionRatesResponse>(json);
-                foreach (var keyValuePair in apiResponse.Result)
+                foreach (var currency in currencyConverter.CurrencyList)
                 {
-                    string amount = keyValuePair.Value.Replace('.', ',');
-                    currencyConverter.CurrencyList.Find(c => c.Abbreviation == keyValuePair.Key).RelativeValue = float.Parse(amount);
+                    currency.RelativeValue = float.Parse(apiResponse.Result[currency.Abbreviation].Replace('.', ',')) * currencyConverter.amount;
                 }
-                await Console.Out.WriteLineAsync();
             }
+
+            return true;
         }
     }
 }

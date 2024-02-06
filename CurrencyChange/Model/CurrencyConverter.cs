@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.Pkcs;
 using System.Text;
 using System.Threading.Tasks;
+using CurrencyChange.ViewModel;
 
 namespace CurrencyChange.Model
 {
@@ -14,13 +16,13 @@ namespace CurrencyChange.Model
         public List<Currency> CurrencyList { get; set; }
         public int amount;
 
-        public CurrencyConverter() 
+        public CurrencyConverter(CurrencyChangeVM vm) 
         {
-            Base = new Currency("USD", "United States Dollar");
+            Base = new Currency("USD", "United States Dollar", vm);
             CurrencyList = new List<Currency>
             {
-                new Currency("EUR", "Euro"),
-                new Currency("HUF", "Hungarian Forint")
+                new Currency("EUR", "Euro", vm),
+                new Currency("HUF", "Hungarian Forint", vm)
             };
         }
     }
